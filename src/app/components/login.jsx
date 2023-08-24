@@ -1,11 +1,15 @@
 "use client"
-import { IconBrandGithub, IconBrandMeta, IconBrandX } from '@tabler/icons-react'
+import { IconBrandAmongUs, IconBrandGithub, IconBrandMeta, IconBrandX, IconRun } from '@tabler/icons-react'
 import React from 'react'
 
 export default function Login() {
 
    function handleModal() {
       my_modal_1.showModal()
+   }
+
+   function handleOtherLogin() {
+      my_modal_2.showModal()
    }
 
    return (
@@ -33,18 +37,29 @@ export default function Login() {
                </div>
                <div className="flex gap-2 justify-end">
                   <button className="btn btn-sm">Close</button>
-                  <button typeof='submit' className="btn btn-info btn-sm">Login</button>
+                  <span className="btn btn-info btn-sm" onClick={handleOtherLogin}>Login</span>
                </div>
                <hr className='border-neutral my-2' />
                <p className='text-center'>OR</p>
                <div className="flex justify-center gap-2 my-2">
-                  <button className='btn btn-sm bg-slate-800 hover:bg-slate-700 capitalize text-white'><IconBrandGithub size={20}/> Github</button>
-                  <button className='btn btn-sm bg-blue-700 hover:bg-blue-600 capitalize text-white'><IconBrandMeta size={20}/> Meta</button>
-                  <button className='btn btn-sm bg-black hover:bg-gray-900 capitalize text-white'><IconBrandX size={20}/> Twitter</button>
+                  <span className='btn btn-sm bg-slate-800 hover:bg-slate-700 capitalize text-white' onClick={handleOtherLogin}><IconBrandGithub size={20} /> Github</span>
+                  <span className='btn btn-sm bg-blue-700 hover:bg-blue-600 capitalize text-white' onClick={handleOtherLogin}><IconBrandMeta size={20} /> Meta</span>
+                  <span className='btn btn-sm bg-black hover:bg-gray-900 capitalize text-white' onClick={handleOtherLogin}><IconBrandX size={20} /> Twitter</span>
                </div>
                <hr className='border-neutral my-2' />
-               <p>Belum punya akun? <span className='text-info cursor-pointer'>Daftar</span></p>
-               <p>Lupa Password? <span className='text-info cursor-pointer'>Klik</span></p>
+               <p>Belum punya akun? <span className='text-info cursor-pointer' onClick={handleOtherLogin}>Daftar</span></p>
+               <p>Lupa Password? <span className='text-info cursor-pointer' onClick={handleOtherLogin}>Klik</span></p>
+            </form>
+         </dialog>
+
+         <dialog id="my_modal_2" className="modal">
+            <form method='dialog' className="modal-box text-center">
+               <h3 className='font-bold'>Loh orang fiturnya aja blm ada awkkwkw</h3>
+               <p className='flex justify-center my-5'>
+                  <IconBrandAmongUs size={128} />
+               </p>
+
+               <button className='btn capitalize'><IconRun/> Kabur</button>
             </form>
          </dialog>
       </>
